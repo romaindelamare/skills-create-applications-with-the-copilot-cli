@@ -1,44 +1,10 @@
 #!/usr/bin/env node
 /**
- * Simple CLI Calculator
- * Supported operations:
- *  - Addition: + or add
- *  - Subtraction: - or sub
- *  - Multiplication: * or mul or x
- *  - Division: / or div
- *
- * Usage:
- *  node src/index.js <operator> <number1> <number2>
- *  Examples:
- *    node src/index.js + 4 5
- *    node src/index.js add 4 5
- *
- * If no arguments are provided the script enters interactive mode.
+ * CLI wrapper for the calculator core module
  */
 
 const readline = require('readline');
-
-function parseNumber(value) {
-  const n = Number(value);
-  if (Number.isNaN(n)) throw new Error(`Invalid number: ${value}`);
-  return n;
-}
-
-function calculate(op, a, b) {
-  switch (op) {
-    case '+': case 'add':
-      return a + b;
-    case '-': case 'sub':
-      return a - b;
-    case '*': case 'x': case 'mul':
-      return a * b;
-    case '/': case 'div':
-      if (b === 0) throw new Error('Division by zero');
-      return a / b;
-    default:
-      throw new Error(`Unsupported operation: ${op}`);
-  }
-}
+const { parseNumber, calculate } = require('./calc');
 
 function printUsage() {
   console.log('Usage: node src/index.js <operator> <number1> <number2>');
