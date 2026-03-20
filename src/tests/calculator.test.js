@@ -30,4 +30,32 @@ describe('Calculator core', () => {
   test('parseNumber throws on invalid input', () => {
     expect(() => parseNumber('abc')).toThrow('Invalid number');
   });
+
+  // New tests for extended operations
+  test('modulo: 5 % 2 = 1', () => {
+    expect(calculate('%', 5, 2)).toBe(1);
+    expect(calculate('mod', 5, 2)).toBe(1);
+  });
+
+  test('modulo by zero throws', () => {
+    expect(() => calculate('%', 1, 0)).toThrow('Modulo by zero');
+    expect(() => calculate('mod', 1, 0)).toThrow('Modulo by zero');
+  });
+
+  test('power: 2 ^ 3 = 8', () => {
+    expect(calculate('^', 2, 3)).toBe(8);
+    expect(calculate('pow', 2, 3)).toBe(8);
+  });
+
+  test('power with negative exponent: 2 ^ -3 = 0.125', () => {
+    expect(calculate('^', 2, -3)).toBeCloseTo(0.125);
+  });
+
+  test('square root: sqrt 16 = 4', () => {
+    expect(calculate('sqrt', 16)).toBe(4);
+  });
+
+  test('square root of negative number throws', () => {
+    expect(() => calculate('sqrt', -9)).toThrow('Cannot take square root of negative number');
+  });
 });
