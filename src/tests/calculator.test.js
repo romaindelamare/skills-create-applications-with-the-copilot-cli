@@ -1,4 +1,4 @@
-const { parseNumber, calculate } = require('../calc');
+const { parseNumber, calculate } = require('../calculator');
 
 describe('Calculator core', () => {
   test('addition: 2 + 3 = 5', () => {

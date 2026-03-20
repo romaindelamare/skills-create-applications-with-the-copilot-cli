@@ -13,19 +13,19 @@ function parseNumber(value) {
   return n;
 }
 
-function add(a, b) {
+function addition(a, b) {
   return a + b;
 }
 
-function subtract(a, b) {
+function subtraction(a, b) {
   return a - b;
 }
 
-function multiply(a, b) {
+function multiplication(a, b) {
   return a * b;
 }
 
-function divide(a, b) {
+function division(a, b) {
   if (b === 0) throw new Error('Division by zero');
   return a / b;
 }
@@ -33,16 +33,16 @@ function divide(a, b) {
 function calculate(op, a, b) {
   switch (op) {
     case '+': case 'add':
-      return add(a, b);
+      return addition(a, b);
     case '-': case 'sub':
-      return subtract(a, b);
+      return subtraction(a, b);
     case '*': case 'x': case 'mul':
-      return multiply(a, b);
+      return multiplication(a, b);
     case '/': case 'div':
-      return divide(a, b);
+      return division(a, b);
     default:
       throw new Error(`Unsupported operation: ${op}`);
   }
 }
 
-module.exports = { parseNumber, add, subtract, multiply, divide, calculate };
+module.exports = { parseNumber, addition, subtraction, multiplication, division, calculate };

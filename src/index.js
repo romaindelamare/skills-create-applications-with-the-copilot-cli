@@ -4,7 +4,7 @@
  */
 
 const readline = require('readline');
-const { parseNumber, calculate } = require('./calc');
+const { parseNumber, calculate } = require('./calculator');
 
 function printUsage() {
   console.log('Usage: node src/index.js <operator> <number1> <number2>');
